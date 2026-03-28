@@ -33,12 +33,28 @@
                 </svg>
             </button>
 
-            <button type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                    <circle cx="12" cy="7" r="4"/>
-                    <path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/>
-                </svg>
-            </button>
+            <div class="perfil-wrapper">    
+                <button type="button" id="btnPerfil">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <circle cx="12" cy="7" r="4"/>
+                        <path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/>
+                    </svg>
+                </button>
+
+                <div class="perfil-dropdown" id="perfilDropdown">
+                    <p class="perfil-titulo">Conta</p>
+                    <button>
+                        <a href="LoginCliente.html" class="perfil-btn perfil-btn-roxo">Login</a>
+                    </button>
+                    <button>
+                        <a href="CadastroCliente.html" class="perfil-btn perfil-btn-verde">Cadastre-se Agora!</a>
+                    </button>
+                    <div class="perfil-linha">
+                        <button class="perfil-btn-outline">🛍 Pedidos</button>
+                        <button class="perfil-btn-outline">👤 Perfil</button>
+                    </div>    
+                </div>
+            </div>
 
             <button type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
@@ -223,6 +239,22 @@
         function startAuto() { autoTimer = setInterval(() => goTo(current + 1), interval); }
         function resetAuto()  { clearInterval(autoTimer); startAuto(); }
         startAuto();
+
+
+        //Area de JS do perfil//
+
+        const btnPerfil = document.getElementById('btnPerfil');
+        const perfilDropdown = document.getElementById('perfilDropdown')
+
+        btnPerfil.addEventListener('click', (e) => {
+            e.stopPropagation();
+            perfilDropdown.classList.toggle('aberto');
+        });
+
+        document.addEventListener('click', () => {
+            perfilDropdown.classList.remove('aberto');
+        });
+
     </script>
 
 </body>
