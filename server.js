@@ -1,4 +1,7 @@
-const express= require('express');
+import express from 'express'
 const app= express();
 
-app.use(express.json());
+app.get('/usuarios', (request,  res) => {
+    res.send('Ok, Deu Certo')
+})
+app.listen(4000)
