@@ -12,7 +12,8 @@ app.use(bodyParser.json());
 
 // CONFIGURAÇÃO PARA SERVIR O FRONTEND:
 // Define a pasta atual como origem de ficheiros estáticos (HTML, JS, CSS)
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, 'Pages')));
+app.use(express.static(path.join(__dirname,)));
 
 // Rota principal: entrega o index.html
 app.get('/', (req, res) => {
