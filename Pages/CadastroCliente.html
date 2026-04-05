@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - ConexaoJeans</title>
+    <link rel="stylesheet" href="./CSS/cadastro.css">
+    <script src="./javascript/cadastro.js"></script>
+</head>
+
+
+<body>
+    <div class="signup-wrapper">
+        <div class="logo">
+            <img src="IMG/logo.png" alt="Logo ConexaoJeans">
+        </div>
+        
+        <div class="signup-container">
+            <a href="index.html" class="back-link">← Voltar</a>
+            
+            <div class="header-text">
+                <h2>Criar Conta</h2>
+            </div>
+
+            <form id="signupForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">Primeiro Nome</label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="Seu nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Sobrenome</label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="Seu sobrenome">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Digite seu email">
+                </div>
+
+                <div class="form-group">
+                    <label for="CPF">CPF</label>
+                    <input type="text" id="CPF" autocomplete="off" required placeholder="Digite seu CPF">
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" name="username" required placeholder="Escolha um usuário">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required placeholder="Crie uma senha forte">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Senha</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirme sua senha">
+                </div>
+
+                <div class="terms-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">Eu concordo com os <a href="#"><strong>Termos de Serviço</strong></a> e <a href="#"><strong>Política de Privacidade</strong></a></label>
+                </div>
+
+                <button type="submit" class="signup-btn">Criar Conta</button>
+            </form>
+
+            <div class="login-link">
+                Já tem conta? <a href="LoginCliente.html">Faça login aqui</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        const cpfInput = document.getElementById('CPF')  
+
+        cpfInput.addEventListener('input', (e) => {
+        
+            let value = cpfInput.value.replace(/\D/g, '')
+
+           
+            if (value.length <= 3) {
+                cpfInput.value = value
+            } else if (value.length <= 6) {
+                cpfInput.value = value.slice(0,3) + '.' + value.slice(3)
+            } else if (value.length <= 9) {
+                cpfInput.value = value.slice(0,3) + '.' + value.slice(3,6) + '.' + value.slice(6)
+            } else {
+                cpfInput.value = value.slice(0,3) + '.' + value.slice(3,6) + '.' + value.slice(6,9) + '-' + value.slice(9,11)
+            }
+        })
+    </script>
+</body>
+</html>
